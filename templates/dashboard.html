@@ -321,7 +321,7 @@
       <!-- 그래프가 그려지는 부분 -->
       <!-- ChartJs 를 이용하여 그래프를 생성 -->
       <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
-      <!-- <canvas class="my-4 w-100" id="myChart2" width="900" height="380"></canvas> -->
+      <canvas class="my-4 w-100" id="myChart2" width="900" height="380"></canvas>
 
       <!-- table 전 서브 제목 -->
       <h2>Section title</h2>
@@ -366,7 +366,7 @@
         const ctx = document.getElementById('myChart')
         // eslint-disable-next-line no-unused-vars
         const myChart = new Chart(ctx, {
-          type: 'line',
+          type: 'bar',
           data: {
             // x축 데이터터
             labels: {{x_data | tojson}},
@@ -381,17 +381,18 @@
                 borderWidth: 4,
                 pointBackgroundColor: '#007bff', 
                 yAxisID : 'y'
-              }, {
-                // data -> y축 데이터
-                data: {{y1_data | tojson}},
-                type: 'bar',
-                lineTension: 0,
-                backgroundColor: 'transparent',
-                borderColor: '#007bff',
-                borderWidth: 4,
-                pointBackgroundColor: '#007bff', 
-                yAxisID : 'y1'
               }
+              // , {
+              //   // data -> y축 데이터
+              //   data: {{y1_data | tojson}},
+              //   type: 'line',
+              //   lineTension: 0,
+              //   backgroundColor: 'transparent',
+              //   borderColor: '#007bff',
+              //   borderWidth: 4,
+              //   pointBackgroundColor: '#007bff', 
+              //   yAxisID : 'y1'
+              // }
             ]
           },
           options: {
@@ -409,14 +410,12 @@
               }, 
               y1 : { 
                 position : 'right', 
-                min : 0, 
-                max : 100000000
               }
             }
           }
         })
     </script>
-    <!-- <script>
+    <script>
       // Graphs
       const ctx2 = document.getElementById('myChart2')
       // eslint-disable-next-line no-unused-vars
@@ -447,6 +446,6 @@
           }
         }
       })
-  </script> -->
+  </script>
   </body>
 </html>
